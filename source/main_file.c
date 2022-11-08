@@ -12,7 +12,6 @@ int main(int ac, char **av)
     if (error_handle(ac, av))
         return 84;
     if (ac == 2) {
-        printf("je suis la\n");
         if (solve_map(av[1]) == -1)
             return 84;
     }
