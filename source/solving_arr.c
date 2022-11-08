@@ -24,7 +24,6 @@ int find_small(int **arr, int x, int y)
 
 void assign_vector(int **arr, int x, int y, vector_t *vector)
 {
-    arr[x][y] = find_small(arr, x, y);
     if (arr[x][y] > vector->size) {
         vector->size = arr[x][y];
         vector->x = x;
@@ -38,6 +37,11 @@ vector_t find_square(int **arr, vector_t *size_of_map)
 
     for (int i = 1; i != size_of_map->y; i++) {
         for (int j = 1; j != size_of_map->x; j++) {
+            arr[i][j] = find_small(arr, i, j);
+        }
+    }
+    for (int i = 0; i != size_of_map->y; i++) {
+        for (int j = 0; j != size_of_map->x; j++) {
             assign_vector(arr, i, j, &vector);
         }
     }
