@@ -95,5 +95,9 @@
     vector_t pattern_for_line(char *map, const char *pattern,
     vector_t size_and_index);
     int my_getnbr_no_err(char const *str);
+    int my_str_is_formatted(char const *str);
+    int my_is_formatted(char c);
+    void free_both(vector_t *size_of_map, char *buffer);
+    int free_if(char **map, int i);
 
 #endif /* !myh */

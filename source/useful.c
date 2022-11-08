@@ -22,6 +22,12 @@ void free_map(char **arr, int nb_rows)
     free(arr);
 }
 
+void free_both(vector_t *size_of_map, char *buffer)
+{
+    free(size_of_map);
+    free(buffer);
+}
+
 void free_int_map(int **arr, int nb_rows)
 {
     for (int i = 0; i < nb_rows; i++)

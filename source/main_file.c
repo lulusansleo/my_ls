@@ -16,7 +16,7 @@ int main(int ac, char **av)
             return 84;
     }
     if (ac == 3) {
-        if (generate_map(av[1], av[2]) == 84)
+        if (generate_map(av[1], av[2]) == -1)
             return 84;
     }
     return 0;

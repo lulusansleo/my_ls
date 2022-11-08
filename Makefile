@@ -12,7 +12,8 @@ SRC				=	source/main_file.c\
 					source/error.c\
 					source/get_size.c\
 					source/solve_arr.c\
-					source/solving_arr.c
+					source/solving_arr.c\
+					source/free_if.c
 
 OBJ				=	$(SRC:.c=.o)
 

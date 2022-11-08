@@ -57,6 +57,8 @@ char **buff_to_arr(char **map, char *buffer, vector_t *size_of_map)
         for (k = 0; buffer[j] != '\n'; k++, j++)
             map[i][k] = buffer[j];
         map[i][k] = '\0';
+        if (free_if(map, i))
+            return NULL;
         j++;
         k = 0;
     }
@@ -67,21 +69,22 @@ char **buff_to_arr(char **map, char *buffer, vector_t *size_of_map)
 int solve_map(const char *filepath)
 {
     char *buffer = open_write_map(filepath);
-    vector_t *size_of_map = NULL;
-    char **map = NULL;
+    vector_t *size_of_map = NULL; char **map = NULL;
 
     if (buffer == NULL)
         return -1;
     size_of_map = get_size_of_map(buffer, size_of_map);
     if (size_error(size_of_map)) {
-        free(size_of_map);
-        free(buffer);
+        free_both(size_of_map, buffer);
         return -1;
     }
     map = buff_to_arr(map, buffer, size_of_map);
+    if (map == NULL) {
+        free_both(size_of_map, buffer);
+        return -1;
+    }
     solve_arr(map, size_of_map);
     free_map(map, size_of_map->y);
-    free(size_of_map);
-    free(buffer);
+    free_both(size_of_map, buffer);
     return 0;
 }
