@@ -24,9 +24,9 @@
 
 
     typedef struct vector {
-        int x;
-        int y;
-        int size;
+        short x;
+        short y;
+        short size;
     } vector_t;
 
     int my_reverse_nbr(int nb);
@@ -82,15 +82,15 @@
     char **generator(int size, char const *pattern);
     int fs_open_file(char const *filepath);
     void free_map(char **map, int size);
-    void free_int_map(int **map, int size);
+    void free_int_map(short **map, int size);
     int count_lines(char *map);
     int count_columns(char *map, int line_count);
     int size_error(vector_t *size_of_map);
     void print_map(vector_t vector, vector_t *size_of_map, char **map);
-    void print_cond(vector_t vector, int i, int j, char **map);
-    vector_t find_square(int **arr, vector_t *size_of_map);
-    void assign_vector(int **arr, int x, int y, vector_t *vector);
-    int find_small(int **arr, int x, int y);
+    void print_cond(vector_t vector, short i, short j, char **map);
+    vector_t find_square(short **arr, vector_t *size_of_map);
+    void assign_vector(short **arr, short x, short y, vector_t *vector);
+    short find_small(short **arr, short x, short y);
     void solve_arr(char **map, vector_t *size_of_map);
     vector_t pattern_for_line(char *map, const char *pattern,
     vector_t size_and_index);

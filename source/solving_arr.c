@@ -7,9 +7,9 @@
 
 #include <my.h>
 
-int find_small(int **arr, int x, int y)
+short find_small(short **arr, short x, short y)
 {
-    int nb;
+    short nb;
 
     nb = arr[x - 1][y - 1];
     if (arr[x][y] == 0)
@@ -22,7 +22,7 @@ int find_small(int **arr, int x, int y)
     return nb;
 }
 
-void assign_vector(int **arr, int x, int y, vector_t *vector)
+void assign_vector(short **arr, short x, short y, vector_t *vector)
 {
     if (arr[x][y] > vector->size) {
         vector->size = arr[x][y];
@@ -31,7 +31,7 @@ void assign_vector(int **arr, int x, int y, vector_t *vector)
     }
 }
 
-vector_t find_square(int **arr, vector_t *size_of_map)
+vector_t find_square(short **arr, vector_t *size_of_map)
 {
     vector_t vector = {0, 0, 0};
 
@@ -48,7 +48,7 @@ vector_t find_square(int **arr, vector_t *size_of_map)
     return vector;
 }
 
-void print_cond(vector_t vector, int i, int j, char **map)
+void print_cond(vector_t vector, short i, short j, char **map)
 {
     if (vector.x - vector.size < i && vector.x >= i
     && vector.y - vector.size < j && vector.y >= j)
