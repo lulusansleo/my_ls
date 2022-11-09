@@ -87,7 +87,7 @@
     int count_columns(char *map, int line_count);
     int size_error(vector_t *size_of_map);
     void print_map(vector_t vector, vector_t *size_of_map, char **map);
-    void print_cond(vector_t vector, short i, short j, char **map);
+    void print_cond(vector_t vector, char **map);
     vector_t find_square(short **arr, vector_t *size_of_map);
     void assign_vector(short **arr, short x, short y, vector_t *vector);
     short find_small(short **arr, short x, short y);

@@ -48,18 +48,17 @@ vector_t find_square(short **arr, vector_t *size_of_map)
     return vector;
 }
 
-void print_cond(vector_t vector, short i, short j, char **map)
+void print_cond(vector_t vector, char **map)
 {
-    if (vector.x - vector.size < i && vector.x >= i
-    && vector.y - vector.size < j && vector.y >= j)
-        map[i][j] = 'x';
+    for (int a = vector.x - vector.size + 1; a <= vector.x; a++)
+        for (int b = vector.y - vector.size + 1; b <= vector.y; b++)
+            map[a][b] = 'x';
 }
 
 void print_map(vector_t vector, vector_t *size_of_map, char **map)
 {
+    print_cond(vector, map);
     for (int i = 0; i != size_of_map->y; i++) {
-        for (int j = 0; j != size_of_map->x; j++)
-            print_cond(vector, i, j, map);
         write(1, map[i], size_of_map->x);
         write(1, "\n", 1);
     }
