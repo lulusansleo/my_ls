@@ -57,7 +57,8 @@ int generate_map(char const *size, char const *pattern)
 
     if (!my_str_isnum(size) || !my_str_is_formatted(pattern))
         return -1;
-    size_int = my_getnbr_no_err(size);
+    if ((size_int = my_getnbr_no_err(size)) == 0)
+        return -1;
     map = generator(size_int, pattern);
     size_of_map.x = size_int;
     size_of_map.y = size_int;
